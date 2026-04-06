@@ -4,7 +4,9 @@ This document contains the Splunk queries used during the investigation, mapped 
 
 ---
 
-## 1. Failed Logon Detection
+## 01_failed_logons_4625.png 
+ 
+### Failed Logon Detection
 
 ```spl
 index=main "Event ID"=4625
@@ -12,9 +14,9 @@ index=main "Event ID"=4625
 
 Detects failed login attempts that may indicate brute-force activity.
 
----
+## 02_target_user_extraction.png
 
-## 2. Extract Target User
+### Extract Target User
 
 ```spl
 index=main "Event ID"=4625
@@ -24,9 +26,9 @@ index=main "Event ID"=4625
 
 Extracts the account being targeted during failed login attempts.
 
----
+## 03_failed_logon_count.png
 
-## 3. Brute Force Detection (Count Attempts)
+### Brute Force Detection (Count Attempts)
 
 ```spl
 index=main "Event ID"=4625
@@ -36,9 +38,9 @@ index=main "Event ID"=4625
 
 Counts failed login attempts per user to identify brute-force patterns.
 
----
+## 04_attack_timeline.png
 
-## 4. Timeline Correlation
+### Timeline Correlation
 
 ```spl
 index=main ("Event ID"=4624 OR "Event ID"=4625)
@@ -48,9 +50,9 @@ index=main ("Event ID"=4624 OR "Event ID"=4625)
 
 Correlates failed and successful login events to reconstruct the attack sequence.
 
----
+## 05_successful_logon_4624.png
 
-## 5. Successful Logon Detection
+### Successful Logon Detection
 
 ```spl
 index=main "Event ID"=4624
@@ -58,9 +60,9 @@ index=main "Event ID"=4624
 
 Identifies successful authentication events after brute-force attempts.
 
----
+## 06_privilege_escalation_4732.png
 
-## 6. Privilege Escalation Detection
+### Privilege Escalation Detection
 
 ```spl
 index=main "Event ID"=4732
