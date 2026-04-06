@@ -187,13 +187,13 @@ If this activity is not detected:
 
 This investigation demonstrates how Windows authentication logs can be analyzed using Splunk to detect a complete attack chain.
 
+By correlating failed login attempts, successful authentication, and privilege escalation events, it is possible to identify attacker behavior and reconstruct the incident.
+
+This workflow reflects real-world SOC practices for threat detection and incident response.
+
 ---
 
 ## Project Files
 
 - [Incident Report](analysis/incident_report.md)
 - [Splunk Queries](queries/splunk_queries.md)
-
-By correlating failed login attempts, successful authentication, and privilege escalation events, it is possible to identify attacker behavior and reconstruct the incident.
-
-This workflow reflects real-world SOC practices for threat detection and incident response.
