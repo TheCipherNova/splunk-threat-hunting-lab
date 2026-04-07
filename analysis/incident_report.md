@@ -123,3 +123,9 @@ This incident demonstrates a complete attack chain starting from brute-force att
 By correlating authentication logs and security events in Splunk, it was possible to identify malicious behavior and reconstruct the attack timeline.
 
 This reflects a real-world SOC investigation workflow and highlights the importance of log analysis in threat detection.
+
+---
+
+## 10. Key Takeaway
+
+Early detection of repeated failed login attempts (Event ID 4625) is critical, as it can prevent full account compromise and privilege escalation if acted upon in time.
