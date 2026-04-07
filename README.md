@@ -4,7 +4,9 @@
 
 This project demonstrates a threat hunting investigation using Splunk to detect a multi-stage attack involving brute-force login attempts, credential compromise, and privilege escalation.
 
-The analysis is based on Windows Security Event Logs (Event IDs 4625, 4624, and 4732) and follows a real-world SOC investigation workflow—from initial detection to attack chain reconstruction.
+The analysis is based on Windows Security Event Logs (Event IDs 4625, 4624, and 4732) and follows a real-world SOC workflow—from initial detection to full attack chain reconstruction.
+
+The scenario simulates an attacker performing brute-force attempts, successfully gaining access, and escalating privileges, reflecting a realistic SOC investigation use case.
 
 ---
 
