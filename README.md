@@ -4,9 +4,15 @@
 
 This project demonstrates a threat hunting investigation using Splunk to detect a multi-stage attack involving brute-force login attempts, credential compromise, and privilege escalation.
 
-The analysis is based on Windows Security Event Logs (Event IDs 4625, 4624, and 4732) and follows a real-world SOC workflow—from initial detection to full attack chain reconstruction.
+The analysis is based on Windows Security Event Logs (Event IDs 4625, 4624, and 4732) and follows a structured SOC-style investigation workflow—from initial detection to authentication attack timeline reconstruction.
 
-The scenario simulates an attacker performing brute-force attempts, successfully gaining access, and escalating privileges, reflecting a realistic SOC investigation use case.
+The scenario simulates an attacker performing brute-force attempts, successfully gaining access, and escalating privileges, representing a simulated authentication attack scenario for threat hunting analysis.
+
+---
+
+## Environment Disclaimer
+
+This project was conducted in a simulated SOC lab environment using Windows Security Event Logs ingested into Splunk Enterprise for cybersecurity learning and threat hunting practice.
 
 ---
 
@@ -17,6 +23,18 @@ The scenario simulates an attacker performing brute-force attempts, successfully
 - Correlate failed and successful login events  
 - Detect privilege escalation activity  
 - Reconstruct the full attack timeline  
+
+---
+
+## Skills Demonstrated
+
+- Threat Hunting
+- SIEM Monitoring
+- SPL Query Development
+- Windows Event Log Analysis
+- Event Correlation
+- Authentication Attack Detection
+- MITRE ATT&CK Mapping
 
 ---
 
@@ -33,6 +51,12 @@ The scenario simulates an attacker performing brute-force attempts, successfully
 A hypothesis-driven approach was used:
 
 > An attacker may be attempting multiple password guesses (brute force), eventually gaining access and escalating privileges.
+
+---
+
+## Analyst Thought Process
+
+The investigation began by identifying repeated authentication failures that could indicate brute-force behavior. The next step was to determine whether the failed attempts resulted in successful authentication, followed by reviewing privileged group modification events to identify possible privilege escalation activity.
 
 ---
 
@@ -180,18 +204,35 @@ THEN privilege escalation detected
 If this activity is not detected:
 
 * Unauthorized access to systems
-* Privilege escalation to administrator level
-* Potential full system compromise
+* Unauthorized privilege escalation through administrator group access
+* Potential unauthorized administrative access
+
+---
+
+## Challenges Faced
+
+- Extracting usernames reliably from raw Windows Security Event Logs
+- Correlating authentication events across timestamps
+- Filtering noisy authentication activity to focus on suspicious patterns
+- Validating whether successful logins were related to earlier failed attempts
+
+---
+
+## Lessons Learned
+
+- Importance of correlating authentication events instead of reviewing isolated logs
+- Better understanding of Windows authentication telemetry and attack timelines
+- Practical experience using SPL queries for threat hunting workflows
 
 ---
 
 ## Conclusion
 
-This investigation demonstrates how Windows authentication logs can be analyzed using Splunk to detect a complete attack chain.
+This investigation demonstrates how Windows authentication logs can be analyzed using Splunk to detect and reconstruct a simulated authentication attack sequence.
 
-By correlating failed login attempts, successful authentication, and privilege escalation events, it is possible to identify attacker behavior and reconstruct the incident.
+By correlating failed login attempts, successful authentication, and privilege escalation events, it is possible to identify suspicious authentication activity and reconstruct the incident.
 
-This workflow reflects real-world SOC practices for threat detection and incident response.
+This workflow demonstrates how authentication telemetry can be analyzed and correlated in a SOC-style investigation workflow for threat detection and security monitoring.
 
 ---
 
