@@ -1,4 +1,4 @@
-# Threat Hunting & Incident Analysis: Brute Force Attack Detection using Splunk
+# Splunk Threat Hunting Lab – Authentication Attack Detection & Log Correlation
 
 ## Overview
 
